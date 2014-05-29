@@ -1,0 +1,1 @@
+- debug: msg="secret is {{secret}} motorcycle is {{motorcycle}}"
