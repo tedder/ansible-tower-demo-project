@@ -1,1 +1,2 @@
 - debug: msg="secret is {{secret}} motorcycle is {{motorcycle}}"
+- debug: msg="hello\"world\""
