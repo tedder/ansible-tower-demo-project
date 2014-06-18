@@ -1,0 +1,19 @@
+---
+#these two lines fail to pass yaml:
+#- name: foo
+#  { role: simple, motorcycle: "buell", secret: "cow" }
+# (which raises the question- can roles be called from tasks?)
+
+
+# this doesn't work either
+#- { role: simple, motorcycle: "buell", secret: "cow" }
+
+#- name: call simple with a when
+  #{ role: simple, motorcycle="buell", secret="cow" }
+  #when: missing_variable is not defined
+#- name: call simple in a loop
+  #{ role: simple, motorcycle={{item.name}}, secret={{item.secret}} }
+  #with_items:
+    #- { name: cow, secret=moo }
+    #- { name: duck, secret=quack }
+

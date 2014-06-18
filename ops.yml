@@ -3,4 +3,4 @@
   name: first host foo
   connection: local
   roles:
-  - simple
+  - call_simple
