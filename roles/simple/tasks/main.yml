@@ -1,2 +1,5 @@
-- debug: msg="secret is {{secret}} motorcycle is {{motorcycle}}"
+- debug: var=item
+  with_items: loop
+- debug: msg="secret is {{item.secret}} motorcycle is {{item.name}}"
+  with_items: loop
 - debug: msg="hello\"world\""

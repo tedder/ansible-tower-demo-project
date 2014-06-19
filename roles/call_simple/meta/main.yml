@@ -1,0 +1,15 @@
+
+dependencies:
+  - { role: simple, when: missing_variable is not defined, loop: "{{animals}}" }
+  - { role: simple, loop: [{ name: goat, secret: bleat }] }
+  # passes "name" and "secret" literally, tried many variations of $ and not $
+  #- { role: simple, motorcycle: name, secret: secret, when: missing_variable is not defined, loop: $animals }
+
+# fails and says "include + with_items is deprecated"
+#- { role: simple, motorcycle: "buell", secret: "cow", when: missing_variable is not defined, with_items: animals }
+
+
+  #include: ../../simple/tasks/main.yml motorcycle="buell" secret="cow"
+  #with_nested:
+    #- { name: cow, secret=moo }
+    #- { name: duck, secret=quack }

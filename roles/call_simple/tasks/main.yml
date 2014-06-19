@@ -8,12 +8,42 @@
 # this doesn't work either
 #- { role: simple, motorcycle: "buell", secret: "cow" }
 
+#- name: do something
+  #role: simple motorcycle="buell" secret="cow"
+
+# works
+#- name: do something
+  #include: ../../simple/tasks/main.yml motorcycle="buell" secret="cow"
+
+  # looks for path: git/ansible-tower-demo-project/roles/call_simple/tasks/simple/tasks/main.yml
+  #include: simple/tasks/main.yml motorcycle="buell" secret="cow"
+
 #- name: call simple with a when
   #{ role: simple, motorcycle="buell", secret="cow" }
   #when: missing_variable is not defined
+
+# works
+#- name: call simple with a when
+  #include: ../../simple/tasks/main.yml motorcycle="buell" secret="cow"
+  #when: missing_variable is not defined
+
+# include/with_xx is deprecated
+#- name: call simple in a loop
+  #include: ../../simple/tasks/main.yml motorcycle="buell" secret="cow"
+  #with_nested:
+    #- { name: cow, secret=moo }
+    #- { name: duck, secret=quack }
+
 #- name: call simple in a loop
   #{ role: simple, motorcycle={{item.name}}, secret={{item.secret}} }
   #with_items:
     #- { name: cow, secret=moo }
     #- { name: duck, secret=quack }
 
+#- name: this iter is successful
+  #debug: var=item.name
+  #with_items: animals
+
+# syntax error
+#- include: ../../simple/tasks/main.yml motorcycle=item.name secret=item.secret
+  #with_items:animals

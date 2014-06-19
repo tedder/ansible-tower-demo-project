@@ -1,0 +1,4 @@
+---
+  animals:
+    - { name: cow, secret: moo }
+    - { name: duck, secret: quack }
